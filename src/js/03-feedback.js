@@ -26,12 +26,18 @@ button.addEventListener('click', resetInfo);
 
 function resetInfo(event) {
   event.preventDefault();
-  console.log(formCurrentStatus);
-  formCurrentStatus = {
-    email: '',
-    message: '',
-  };
-  localStorage.clear();
-  form.elements.email.value = '';
-  form.elements.message.value = '';
+  if(formCurrentStatus.email && formCurrentStatus.message){
+    console.log(formCurrentStatus);
+    formCurrentStatus = {
+      email: '',
+      message: '',
+    };
+    localStorage.clear();
+    form.elements.email.value = '';
+    form.elements.message.value = '';
+  }
+  else {
+    alert('Fil all fields of the form')
+  }
+  
 }
